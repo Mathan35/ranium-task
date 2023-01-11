@@ -1,5 +1,8 @@
 <div>
     <div class="shadow-md border border-gray-200 rounded-lg px-6 py-6 my-8">
+    
+        <h2 class="text-center font-sans text-gray-700 text-lg font-bold py-3">Search for <span class="font-bold text-blue-600">Asteroids</span> based on their closest approach date to Earth</h2>
+
         <form wire:submit.prevent="submit()">
 
             <div class="sm:flex justify-evenly items-center">
@@ -48,15 +51,15 @@
            </div>
         </div>
         @if($fastestAsteroid)
-         <div class="my-2">
+         <div class="my-2 border border-gray-200 bg-gray-100 rounded-lg px-4 py-4">
             <h2 class="text-lg text-gray-800 font-sans font-normal">Fastest Asteroid :- <span class="text-gray-800 font-sans font-semibold">{{$fastestAsteroid}} km/h</span></h2>
             <h2 class="text-lg text-gray-800 font-sans font-normal">Closest Asteroid :- <span class="text-gray-800 font-sans font-semibold">{{$closestAsteroid}} km</span></h2>
             <h2 class="text-lg text-gray-800 font-sans font-normal">Average Size of the Asteroids (d) :- <span class="text-gray-800 font-sans font-semibold">{{$averageSize}}</span></h2>
          </div>
 
-          <div class="my-4">
-            <h2 class="text-center font-sans text-gray-700 font-bold py-3">The bar chart in the given date range</h2>
-            <div class="z-10">
+          <div class="my-4  border-gray-200 bg-gray-100 rounded-lg px-4 py-4">
+            <h2 class="text-center font-sans text-gray-700 text-lg font-bold py-3">The bar chart in the given date range</h2>
+            <div class="z-10 ">
                 <canvas id="myChart"></canvas>
             </div>
           </div>

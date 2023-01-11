@@ -16,10 +16,7 @@ class AsteroidShow extends Component
     public $fastestAsteroid;
     public $closestAsteroid;
     public $averageSize;
-    public $loader;
     public $chartData;
-
-    
 
     public function render()
     {
@@ -31,8 +28,7 @@ class AsteroidShow extends Component
     }
 
     public function submit()
-    {        $this->loader = true;
-
+    {        
         $start_date = Carbon::parse($this->start_date);
         $end_date = Carbon::parse($this->end_date);
 
@@ -74,9 +70,8 @@ class AsteroidShow extends Component
         $this->closestAsteroid= Arr::get($collection->where('distance', $collection->pluck('distance')->min())->first(), 'distance');
         $this->averageSize = $collection->sum('diameter')/$collection->count();
 
-        $this->loader = false;
-
         $this->emit('refreshCharts', ['date' => $this->chartData->pluck('date'), 'counts' => $this->chartData->pluck('counts')]);
 
+        return;
     }
 }
